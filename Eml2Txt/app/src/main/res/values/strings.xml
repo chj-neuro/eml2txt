@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EML→TXT</string>
+    <string name="title">EML → TXT</string>
+    <string name="intro">Turn an email file (.eml) into a plain .txt file. Everything happens on this phone — nothing is uploaded.</string>
+    <string name="pick">Choose .eml file</string>
+    <string name="save">Save as .txt</string>
+    <string name="options_title">Include in the .txt:</string>
+    <string name="option_header">Header (from, to, date, subject)</string>
+    <string name="option_body">Message text</string>
+    <string name="option_attachments">Text attachments (.txt, .csv …)</string>
+    <string name="status_idle">No file chosen yet.\nTip: you can also open an .eml from your file manager or Gmail with \"Open with\", or share a file to this app.</string>
+    <string name="status_reading">Reading %1$s…</string>
+    <string name="status_subject">Subject: %1$s</string>
+    <string name="status_from">From: %1$s</string>
+    <string name="status_attachments">Attachments: %1$d (with text to include: %2$d)</string>
+    <string name="status_email_ready">Choose what to include, check the preview, then save.</string>
+    <string name="status_plain">This file is plain text, not an email message (%1$d lines). It will be saved exactly as it is.</string>
+    <string name="preview_truncated">… the preview shows the first %1$d of %2$d lines. The saved file contains everything.</string>
+    <string name="preview_empty">(Nothing to save — tick at least one box above.)</string>
+    <string name="error_empty">That file is empty.</string>
+    <string name="error_not_text">This isn\'t an email or text file.</string>
+    <string name="error_too_big">This file is too large to open on this phone.</string>
+    <string name="error_generic">Couldn\'t read this file (%1$s).</string>
+    <string name="saved">Saved %1$s</string>
+    <string name="save_failed">Couldn\'t save the file. Try another folder.</string>
+</resources>

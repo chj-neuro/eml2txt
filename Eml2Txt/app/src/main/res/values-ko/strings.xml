@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EML→TXT</string>
+    <string name="title">EML → TXT</string>
+    <string name="intro">이메일 파일(.eml)을 일반 텍스트(.txt) 파일로 바꿉니다. 변환은 이 휴대폰 안에서만 이루어지고 아무것도 업로드되지 않습니다.</string>
+    <string name="pick">.eml 파일 선택</string>
+    <string name="save">.txt로 저장</string>
+    <string name="options_title">.txt에 넣을 내용:</string>
+    <string name="option_header">머리글 (보낸 사람, 받는 사람, 날짜, 제목)</string>
+    <string name="option_body">메일 본문</string>
+    <string name="option_attachments">텍스트 첨부파일 (.txt, .csv 등)</string>
+    <string name="status_idle">아직 선택한 파일이 없습니다.\n팁: 파일 관리자나 Gmail에서 .eml 파일을 ‘다른 앱으로 열기’로 열거나, 파일을 이 앱으로 공유해도 됩니다.</string>
+    <string name="status_reading">%1$s 읽는 중…</string>
+    <string name="status_subject">제목: %1$s</string>
+    <string name="status_from">보낸 사람: %1$s</string>
+    <string name="status_attachments">첨부파일 %1$d개 (텍스트로 넣을 수 있는 것 %2$d개)</string>
+    <string name="status_email_ready">넣을 내용을 고르고 미리보기를 확인한 뒤 저장하세요.</string>
+    <string name="status_plain">이 파일은 이메일 형식이 아닌 일반 텍스트입니다 (%1$d줄). 내용 그대로 저장됩니다.</string>
+    <string name="preview_truncated">… 미리보기는 전체 %2$d줄 중 처음 %1$d줄만 보여줍니다. 저장되는 파일에는 전부 들어갑니다.</string>
+    <string name="preview_empty">(저장할 내용이 없습니다. 위에서 하나 이상 선택하세요.)</string>
+    <string name="error_empty">빈 파일입니다.</string>
+    <string name="error_not_text">이메일이나 텍스트 파일이 아닙니다.</string>
+    <string name="error_too_big">파일이 너무 커서 이 휴대폰에서 열 수 없습니다.</string>
+    <string name="error_generic">파일을 읽지 못했습니다 (%1$s).</string>
+    <string name="saved">저장했습니다: %1$s</string>
+    <string name="save_failed">저장하지 못했습니다. 다른 폴더를 선택해 보세요.</string>
+</resources>

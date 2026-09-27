@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#9CC3EE</color>
+    <color name="window_bg">#121417</color>
+    <color name="preview_bg">#1C2026</color>
+    <color name="preview_stroke">#2E343C</color>
+    <color name="button_text_normal">#0E1A26</color>
+    <color name="button_text_disabled">#990E1A26</color>
+</resources>

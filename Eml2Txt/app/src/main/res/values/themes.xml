@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light theme. Uses only built-in Android styles, so the app needs no extra libraries. -->
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:colorPrimary">@color/accent</item>
+        <item name="android:windowBackground">@color/window_bg</item>
+        <item name="android:statusBarColor">@color/window_bg</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>
