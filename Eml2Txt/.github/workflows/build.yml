@@ -1,0 +1,51 @@
+# Builds the APK on GitHub's computers every time you upload a change.
+# Result: Actions tab → latest run → "Artifacts", and the "Releases" section of the repo.
+name: Build APK
+
+on:
+  push:
+  workflow_dispatch:   # adds a "Run workflow" button on the Actions tab
+
+permissions:
+  contents: write      # needed to publish the APK under Releases
+
+# If you upload twice quickly, the older build is cancelled instead of racing the newer one.
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v5
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Run tests and build the APK
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon test assembleDebug
+          mv app/build/outputs/apk/debug/app-debug.apk Eml2Txt.apk
+
+      - name: Keep the APK as a download (Artifacts)
+        uses: actions/upload-artifact@v6
+        with:
+          name: Eml2Txt-apk
+          path: Eml2Txt.apk
+
+      - name: Publish the APK under Releases (direct download link for your phone)
+        if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest Eml2Txt.apk \
+            --target "$GITHUB_SHA" \
+            --title "Latest build" \
+            --notes "Built from commit ${GITHUB_SHA::7}. Download Eml2Txt.apk below on your phone and open it to install."
