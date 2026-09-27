@@ -27,11 +27,25 @@ jobs:
           distribution: temurin
           java-version: "17"
 
+      # Works whether the project files are at the top of the repository
+      # or inside a folder (e.g. Eml2Txt/), as happens when the folder itself is uploaded.
+      - name: Find the project folder
+        run: |
+          gradlew_path=$(find . -maxdepth 3 -name gradlew -not -path './.git/*' \
+            | awk -F/ '{ print NF, $0 }' | sort -n | head -n 1 | cut -d' ' -f2-)
+          if [ -z "$gradlew_path" ]; then
+            echo "::error::No gradlew file found. Upload the project files (gradlew, app/, gradle/ …) to the repository."
+            exit 1
+          fi
+          echo "PROJECT_DIR=$(dirname "$gradlew_path")" >> "$GITHUB_ENV"
+          echo "Project folder: $(dirname "$gradlew_path")"
+
       - name: Run tests and build the APK
         run: |
+          cd "$PROJECT_DIR"
           chmod +x gradlew
           ./gradlew --no-daemon test assembleDebug
-          mv app/build/outputs/apk/debug/app-debug.apk Eml2Txt.apk
+          mv app/build/outputs/apk/debug/app-debug.apk "$GITHUB_WORKSPACE/Eml2Txt.apk"
 
       - name: Keep the APK as a download (Artifacts)
         uses: actions/upload-artifact@v6
